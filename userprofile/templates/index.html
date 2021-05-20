@@ -1,25 +1,31 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% for profile in form %}
+        <p> {{ profile.f_name }} </p>
+        <p> {{ profile.l_name }} </p>
+        <img src="{{ profile.profile_pic.url }}">
+        
+    {% endfor%}
 
     <form action="" enctype="multipart/form-data" method="post">
         {% csrf_token %}
         <div>
             <div>
                 <label> FirstName </label>
-                <input type="text" name="f_name" id="f_name">
+                <input type="text" name="f_name"  id="f_name">
             </div>
             <div>
                 <label> LastName </label>
                 <input type="text" name="l_name" id="l_name">
             </div>
             <div>
-                <label> Profile </label>
-                <input type="file" name="profile_pic" id="profile_pic">
-            </div>
-            <div>
                 <label> Email </label>
                 <input type="text" name="emai" id="emai">
+            </div>
+            <div>
+                <label> Profile </label>
+                <input type="file" name="profile_pic" id="profile_pic">
             </div>
         </div>
         <input type="submit" value="Submit">

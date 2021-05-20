@@ -3,7 +3,7 @@
 # render is the function
 from django.shortcuts import render
 from django.http import HttpResponse
-# from .models import userprofile
+from .models import userprofile
 # this is the custom form for uploading the image
 from .forms import ProfileForm
 
@@ -19,6 +19,9 @@ def index(request):
         form = ProfileForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+    elif request.method == 'GET':
+        print("Get")
+        form = userprofile.objects.all()
 
     context = {'form': form}
     # This is the default line of code to display a single line
