@@ -30,7 +30,7 @@ urlpatterns = [
 ]
 
 
-#adding static files
+# adding static files
 urlpatterns += staticfiles_urlpatterns()
-# adding URLs , so that they can be accessible.
+# adding media URLs , so that they can be accessible.
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

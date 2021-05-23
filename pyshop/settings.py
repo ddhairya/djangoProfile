@@ -129,6 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'assets'),
+    os.path.join(BASE_DIR, 'userprofile', 'static', '')
 )
 
 # for storing the media in the project we are defining the media URL
