@@ -16,9 +16,13 @@ def index(request):
 
     if request.method == 'POST':
         print(request.POST)
+
         form = ProfileForm(request.POST, request.FILES)
+
         if form.is_valid():
+
             form.save()
+
     # this is required only for GET request to show when page is loaded initially.
     elif request.method == 'GET':
         print("Get")

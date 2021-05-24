@@ -5,9 +5,10 @@ from django.db import models
 
 
 class userprofile(models.Model):
+
     f_name = models.CharField(max_length=30)
     l_name = models.CharField(max_length=30)
-    profile_pic = models.ImageField(upload_to='uploads/')
+    profile_pic = models.CharField(max_length=250 , blank=True)
     emai = models.CharField(max_length=69)
 
 
@@ -16,3 +17,4 @@ class Offers(models.Model):
     code = models.CharField(max_length=10)
     description = models.CharField(max_length=69)
     discount = models.FloatField(max_length=5)
+

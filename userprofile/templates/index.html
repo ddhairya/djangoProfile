@@ -13,13 +13,9 @@
                 <p> {{ profile.l_name }} </p>
             </div>
             <div>
-                <img class="imageClass" src="{{ profile.profile_pic.url }}">
+                <img class="imageClass" src="http://127.0.0.1:8000/media/uploads/{{ profile.profile_pic }}">
             </div>
         </div>
-
-
-
-        
     {% endfor%}
 
     <form action="" enctype="multipart/form-data" method="post">
@@ -38,11 +34,24 @@
                 <input type="text" name="emai" id="emai">
             </div>
             <div>
-                <label> Profile </label>
-                <input type="file" name="profile_pic" id="profile_pic">
+                <select id="catergorySelection" onchange="setPic()">
+                    <option value="github">github</option>
+                    <option value="sophos">sophos</option>
+                </select>
+            </div>
+            <div style="display: none">
+                <input type="text"  name="profile_pic" id="profile_pic" >
             </div>
         </div>
         <input type="submit" value="Submit">
     </form>
 
+    <script>
+        function setPic() {
+          var x = document.getElementById("catergorySelection").value;
+          var y = x +".png"
+          document.getElementById("profile_pic").value =y
+          console.log(document.getElementById("profile_pic").value)
+        }
+    </script>
 {% endblock %}
